@@ -237,10 +237,10 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         </div>
       </div>
       <div class="fg">
-        <div class="fl">Gemini API Key <span class="req">*</span></div>
-        <input type="password" id="geminiKey" placeholder="AIzaSy..." />
+        <div class="fl">Groq API Key <span class="req">*</span></div>
+        <input type="password" id="geminiKey" placeholder="gsk_..." />
         <div class="ibox">
-          Free at <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a> → Sign in with Google → Create API Key. 1,500 free requests/day.
+          Free at <a href="https://console.groq.com" target="_blank">console.groq.com</a> → Sign up free (Google login) → API Keys → Create API Key. Completely free, no credit card, no quota issues.
         </div>
       </div>
       <div class="alert-green">
@@ -288,12 +288,12 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         <div class="ks"><div class="ks-num">5</div><div class="ks-text">You'll see your key under <strong>"X-RapidAPI-Key"</strong> in the right panel — copy it</div></div>
         <div class="ks"><div class="ks-num">6</div><div class="ks-text">Paste it in the <strong>API Keys tab</strong> above</div></div>
       </div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin:20px 0 14px;">Getting Your Gemini Key (2 min)</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin:20px 0 14px;">Getting Your Groq Key (2 min)</div>
       <div class="ks-list">
         <div class="ks"><div class="ks-num">1</div><div class="ks-text">Go to <strong>aistudio.google.com/app/apikey</strong></div></div>
         <div class="ks"><div class="ks-num">2</div><div class="ks-text">Sign in with your <strong>Google / Gmail account</strong></div></div>
         <div class="ks"><div class="ks-num">3</div><div class="ks-text">Click <strong>"Create API Key"</strong> → then <strong>"Create API key in new project"</strong></div></div>
-        <div class="ks"><div class="ks-num">4</div><div class="ks-text">Copy the key that appears (starts with AIzaSy...) → paste in API Keys tab above</div></div>
+        <div class="ks"><div class="ks-num">4</div><div class="ks-text">Copy the key (starts with gsk_...) → paste in API Keys tab above</div></div>
       </div>
       <div class="alert-green" style="margin-top:4px;">Both are completely free. No credit card required for either.</div>
     </div>
@@ -416,7 +416,7 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
     <div class="loading" id="loadingState">
       <div class="spin"></div>
       <div class="load-h" id="loadH">Searching job portals...</div>
-      <div class="load-s" id="loadS">Powered by JSearch + Gemini AI</div>
+      <div class="load-s" id="loadS">Powered by JSearch + Groq AI</div>
       <div class="load-prog">
         <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
         <div class="prog-label" id="progLabel">Initialising...</div>
@@ -491,7 +491,7 @@ function saveSetup() {
     const el = document.getElementById(k); if (el) S[k] = el.value.trim();
   });
   if (!S.jsearchKey) { alert('Please enter your JSearch (RapidAPI) key.'); switchTab('keys'); return; }
-  if (!S.geminiKey)  { alert('Please enter your Gemini API key.'); switchTab('keys'); return; }
+  if (!S.geminiKey)  { alert('Please enter your Groq API key.'); switchTab('keys'); return; }
   if (!S.cvText)     { alert('Please paste your CV text.'); switchTab('cv'); return; }
   localStorage.setItem('jf_v5', JSON.stringify(S));
   document.getElementById('setupModal').style.display = 'none';
@@ -634,25 +634,27 @@ Return exactly this JSON structure:
   "ceoSignal": "<2-3 sentences: does this role advance the CEO-by-2035 path? What specific P&L scale, board exposure, or operational ownership does it add that the current Chief of Staff role lacks?>"
 }`;
  
-  const resp = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${S.geminiKey}`,
-    {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        contents: [{parts:[{text: prompt}]}],
-        generationConfig: {temperature: 0.2, maxOutputTokens: 1200}
-      })
-    }
-  );
+  const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${S.geminiKey}`
+    },
+    body: JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      messages: [{ role: 'user', content: prompt }],
+      temperature: 0.2,
+      max_tokens: 1200
+    })
+  });
  
   if (!resp.ok) {
     const err = await resp.json().catch(()=>({}));
-    throw new Error(err.error?.message || 'Gemini API error ' + resp.status + '. Please check your Gemini key in Settings.');
+    throw new Error(err.error?.message || 'Groq API error ' + resp.status + '. Please check your Groq key in Settings.');
   }
  
   const data = await resp.json();
-  const raw = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const raw = data.choices?.[0]?.message?.content || '';
  
   try {
     const clean = raw.replace(/```json|```/g,'').trim();
@@ -685,7 +687,7 @@ async function analyseManual() {
     portal: 'Manual', via: 'Pasted manually'
   };
  
-  showLoading(); setProgress(30, 'Analysing with Gemini AI...');
+  showLoading(); setProgress(30, 'Analysing with Groq AI...');
  
   try {
     const analysis = await analyseWithGemini(job);
@@ -804,8 +806,8 @@ function setProgress(pct, label) {
   document.getElementById('progFill').style.width=pct+'%';
   document.getElementById('progLabel').textContent=label;
   if(pct>5) {
-    document.getElementById('loadH').textContent=pct<25?'Fetching jobs from portals...':pct<96?'Analysing with Gemini AI...':'Analysis complete ✓';
-    document.getElementById('loadS').textContent=pct<25?'JSearch API → LinkedIn, Indeed, Glassdoor, Naukri':pct<96?'Gemini 1.5 Flash reading each JD vs your CV':'Rendering results...';
+    document.getElementById('loadH').textContent=pct<25?'Fetching jobs from portals...':pct<96?'Analysing with Groq AI...':'Analysis complete ✓';
+    document.getElementById('loadS').textContent=pct<25?'JSearch API → LinkedIn, Indeed, Glassdoor, Naukri':pct<96?'Groq Llama reading each JD vs your CV':'Rendering results...';
   }
 }
 function showError(msg) {
@@ -819,4 +821,3 @@ function showError(msg) {
 </script>
 </body>
 </html>
- 
