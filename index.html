@@ -361,7 +361,7 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         <div class="fr"><label>Max Results</label>
           <select id="fMax">
             <option value="5">5 jobs</option>
-            <option value="8" selected>8 jobs</option>
+            <option value="5" selected>5 jobs</option>
             <option value="10">10 jobs</option>
           </select>
         </div>
@@ -536,7 +536,8 @@ async function runSearch() {
     const results = [];
     for (let i = 0; i < jobs.length; i++) {
       const pct = 20 + Math.round(((i+1)/jobs.length)*76);
-      setProgress(pct, `Analysing ${i+1} of ${jobs.length}: ${jobs[i].title.slice(0,38)}...`);
+      setProgress(pct, `Analysing ${i+1} of ${jobs.length}: ${jobs[i].title.slice(0,38)}${i>0?' (waiting 3s to avoid rate limit...)':''}`);
+      if (i > 0) await new Promise(r => setTimeout(r, 3000)); // 3s delay to avoid rate limit
       const analysis = await analyseWithGemini(jobs[i]);
       results.push({...jobs[i], analysis});
     }
