@@ -3,207 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JobFit AI — CEO Track Job Matcher</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>JobFit AI — CEO Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#07090d; --surface:#0f1218; --surface2:#151a24; --surface3:#1a2030;
-  --border:#1c2333; --border2:#232d42;
-  --gold:#c8a96e; --gold2:#e8cc9a; --gold3:#f5e4c0;
-  --gold-dim:rgba(200,169,110,0.1); --gold-glow:rgba(200,169,110,0.05);
-  --text:#eae6de; --text2:#8892a4; --text3:#4a5568;
-  --green:#3db87a; --green-dim:rgba(61,184,122,0.1); --green-border:rgba(61,184,122,0.2);
-  --red:#e05c5c; --red-dim:rgba(224,92,92,0.1);
-  --amber:#e0a84c; --amber-dim:rgba(224,168,76,0.1);
-  --blue:#5c8fe0; --blue-dim:rgba(92,143,224,0.1);
+:root{
+  --bg:#07090d;--surface:#0f1218;--surface2:#151a24;
+  --border:#1c2333;--border2:#232d42;
+  --gold:#c8a96e;--gold2:#e8cc9a;
+  --gold-dim:rgba(200,169,110,0.1);--gold-glow:rgba(200,169,110,0.05);
+  --text:#eae6de;--text2:#8892a4;--text3:#4a5568;
+  --green:#3db87a;--green-dim:rgba(61,184,122,0.1);--green-b:rgba(61,184,122,0.2);
+  --red:#e05c5c;--red-dim:rgba(224,92,92,0.1);
+  --amber:#e0a84c;--amber-dim:rgba(224,168,76,0.1);
+  --blue:#5c8fe0;--blue-dim:rgba(92,143,224,0.1);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse 60% 40% at 15% 60%,rgba(200,169,110,0.04),transparent),
-             radial-gradient(ellipse 50% 35% at 85% 20%,rgba(92,143,224,0.04),transparent);}
+  background:radial-gradient(ellipse 60% 40% at 15% 60%,rgba(200,169,110,0.03),transparent),
+             radial-gradient(ellipse 50% 35% at 85% 20%,rgba(92,143,224,0.03),transparent);}
 .app{position:relative;z-index:1;}
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px;}
  
 /* HEADER */
-header{border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,13,0.95);backdrop-filter:blur(16px);position:sticky;top:0;z-index:200;}
-.logo{display:flex;align-items:center;gap:11px;}
-.logo-mark{width:32px;height:32px;border:1px solid var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);font-weight:700;}
+header{border-bottom:1px solid var(--border);padding:14px 26px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,13,0.96);backdrop-filter:blur(16px);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:32px;height:32px;border:1px solid var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold);font-weight:700;}
 .logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;}
 .logo-text span{color:var(--gold);}
-.free-pill{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
-.header-right{display:flex;align-items:center;gap:8px;}
-.hbtn{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:6px 13px;border-radius:6px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;}
-.hbtn-ghost{border:1px solid var(--border2);background:transparent;color:var(--text2);}
-.hbtn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.free-pill{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;padding:3px 8px;border-radius:4px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-b);}
+.hdr{display:flex;align-items:center;gap:8px;}
+.hbtn{font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.8px;text-transform:uppercase;padding:6px 12px;border-radius:6px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;}
+.hbtn-g{border:1px solid var(--border2);background:transparent;color:var(--text2);}
+.hbtn-g:hover{border-color:var(--gold);color:var(--gold);}
 .hbtn-gold{border:1px solid var(--gold);background:var(--gold-dim);color:var(--gold);}
  
 /* MODAL */
 .overlay{position:fixed;inset:0;background:rgba(3,5,8,0.97);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;}
-.modal{background:var(--surface);border:1px solid var(--border2);border-radius:18px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;}
-.modal-top{padding:26px 30px 0;}
-.modal-pill{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:8px;}
-.modal-h{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:700;margin-bottom:5px;}
-.modal-sub{font-size:12.5px;color:var(--text2);line-height:1.65;margin-bottom:18px;}
-.m-tabs{display:flex;border-bottom:1px solid var(--border);padding:0 30px;overflow-x:auto;}
-.m-tab{padding:10px 15px;font-size:12px;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
-.m-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-.m-pane{display:none;padding:22px 30px;}
-.m-pane.active{display:block;}
-.modal-foot{padding:0 30px 26px;display:flex;gap:10px;justify-content:flex-end;}
+.modal{background:var(--surface);border:1px solid var(--border2);border-radius:16px;width:100%;max-width:620px;max-height:92vh;overflow-y:auto;}
+.mtop{padding:24px 28px 0;}
+.mpill{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px;}
+.mh{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;margin-bottom:5px;}
+.ms{font-size:12.5px;color:var(--text2);line-height:1.65;margin-bottom:16px;}
+.mtabs{display:flex;border-bottom:1px solid var(--border);padding:0 28px;overflow-x:auto;}
+.mtab{padding:9px 14px;font-size:12px;font-weight:500;color:var(--text3);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;}
+.mtab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.mpane{display:none;padding:20px 28px;}
+.mpane.active{display:block;}
+.mfoot{padding:0 28px 24px;display:flex;gap:10px;justify-content:flex-end;}
  
-/* alert box */
-.alert-box{border-radius:9px;padding:13px 15px;font-size:12.5px;line-height:1.65;margin-bottom:16px;}
-.alert-info{background:var(--blue-dim);border:1px solid rgba(92,143,224,.2);color:var(--text2);}
-.alert-info a{color:var(--blue);text-decoration:none;}
-.alert-info strong{color:var(--text);}
-.alert-warn{background:var(--amber-dim);border:1px solid rgba(224,168,76,.2);color:var(--text2);}
-.alert-warn strong{color:var(--amber);}
-.alert-green{background:var(--green-dim);border:1px solid var(--green-border);color:var(--text2);}
-.alert-green strong{color:var(--green);}
- 
-.fg{margin-bottom:15px;}
-.fl{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
+.fg{margin-bottom:14px;}
+.fl{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;gap:6px;}
 .req{color:var(--gold);}
-input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:8px;padding:10px 13px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;resize:vertical;}
+input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:10px 12px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;resize:vertical;}
 input:focus,textarea:focus,select:focus{border-color:var(--gold);}
 input::placeholder,textarea::placeholder{color:var(--text3);}
-textarea{min-height:100px;}
-.ibox{background:var(--gold-glow);border:1px solid rgba(200,169,110,.15);border-radius:7px;padding:10px 13px;font-size:12px;color:var(--text2);line-height:1.65;margin-top:7px;}
+textarea{min-height:95px;}
+.ibox{background:var(--gold-glow);border:1px solid rgba(200,169,110,.15);border-radius:7px;padding:10px 12px;font-size:12px;color:var(--text2);line-height:1.65;margin-top:6px;}
 .ibox a{color:var(--gold);text-decoration:none;}
-.ibox a:hover{text-decoration:underline;}
 .ibox strong{color:var(--text);}
-.btn-p{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:11px 26px;border-radius:8px;border:none;background:var(--gold);color:#07090d;cursor:pointer;transition:all .2s;}
+.abox{border-radius:8px;padding:11px 14px;font-size:12.5px;line-height:1.65;margin-bottom:14px;}
+.abox-green{background:var(--green-dim);border:1px solid var(--green-b);color:var(--text2);}
+.abox-green strong{color:var(--green);}
+ 
+.ks-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.ks{display:flex;gap:10px;align-items:flex-start;}
+.ks-n{width:21px;height:21px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(200,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gold);flex-shrink:0;margin-top:1px;}
+.ks-t{font-size:12.5px;color:var(--text2);line-height:1.55;}
+.ks-t strong{color:var(--text);}
+ 
+.btn-p{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:10px 24px;border-radius:7px;border:none;background:var(--gold);color:#07090d;cursor:pointer;transition:all .2s;}
 .btn-p:hover{background:var(--gold2);}
-.btn-g{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;padding:11px 18px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;}
-.btn-g:hover{border-color:var(--text2);color:var(--text);}
+.btn-g2{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;padding:10px 16px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;}
+.btn-g2:hover{border-color:var(--text2);color:var(--text);}
  
-/* how-it-works steps */
-.ks-list{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
-.ks{display:flex;gap:11px;align-items:flex-start;}
-.ks-num{width:22px;height:22px;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(200,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--gold);flex-shrink:0;margin-top:1px;}
-.ks-text{font-size:12.5px;color:var(--text2);line-height:1.55;}
-.ks-text strong{color:var(--text);}
- 
-/* MAIN */
-.main{display:grid;grid-template-columns:292px 1fr;min-height:calc(100vh - 57px);}
+/* LAYOUT */
+.main{display:grid;grid-template-columns:285px 1fr;min-height:calc(100vh - 56px);}
 .sidebar{border-right:1px solid var(--border);background:var(--surface);overflow-y:auto;}
-.sb-inner{padding:20px 17px;}
-.sb-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);font-weight:600;margin-bottom:9px;}
-.sb-sec{margin-bottom:20px;}
-textarea.sq{min-height:75px;font-size:13px;margin-bottom:6px;}
+.sbi{padding:20px 16px;}
+.sbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--text3);font-weight:600;margin-bottom:9px;}
+.sbs{margin-bottom:19px;}
+textarea.sq{min-height:72px;font-size:13px;margin-bottom:6px;}
 .sh{font-size:11px;color:var(--text3);line-height:1.55;}
 .fr{margin-bottom:8px;}
 .fr label{font-size:11px;color:var(--text3);display:block;margin-bottom:3px;}
 select{font-size:12px;padding:7px 10px;}
 .portals{display:flex;flex-direction:column;gap:5px;}
-.ptoggle{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:7px;border:1px solid var(--border);cursor:pointer;transition:all .2s;background:var(--bg);}
-.ptoggle.on{border-color:var(--gold);background:var(--gold-dim);}
-.pcheck{width:15px;height:15px;border-radius:3px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .2s;}
-.ptoggle.on .pcheck{background:var(--gold);border-color:var(--gold);color:#07090d;}
-.pname{font-size:12px;font-weight:500;color:var(--text2);flex:1;}
-.ptoggle.on .pname{color:var(--gold);}
-.pbadge{font-size:9px;padding:2px 5px;border-radius:3px;background:var(--border2);color:var(--text3);}
-.btn-search{width:100%;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px;border-radius:9px;border:none;background:var(--gold);color:#07090d;cursor:pointer;transition:all .2s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px;}
+.pt{display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:6px;border:1px solid var(--border);cursor:pointer;transition:all .2s;background:var(--bg);}
+.pt.on{border-color:var(--gold);background:var(--gold-dim);}
+.pck{width:15px;height:15px;border-radius:3px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:all .2s;}
+.pt.on .pck{background:var(--gold);border-color:var(--gold);color:#07090d;}
+.pnm{font-size:12px;font-weight:500;color:var(--text2);flex:1;}
+.pt.on .pnm{color:var(--gold);}
+.pbg{font-size:9px;padding:2px 5px;border-radius:3px;background:var(--border2);color:var(--text3);}
+.btn-search{width:100%;font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:12px;border-radius:8px;border:none;background:var(--gold);color:#07090d;cursor:pointer;transition:all .2s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:7px;}
 .btn-search:hover{background:var(--gold2);}
-.btn-search:disabled{opacity:.5;cursor:not-allowed;}
-hr.div{border:none;border-top:1px solid var(--border);margin:17px 0;}
-.paste-toggle{font-size:11px;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:6px;margin-bottom:8px;user-select:none;}
-.paste-area{display:none;}
-.paste-area.open{display:block;}
-.paste-area input,.paste-area textarea{margin-bottom:6px;}
-.paste-area textarea{min-height:80px;}
+hr.dv{border:none;border-top:1px solid var(--border);margin:16px 0;}
+.ptog{font-size:11px;color:var(--gold);cursor:pointer;display:flex;align-items:center;gap:6px;margin-bottom:8px;user-select:none;}
+.parea{display:none;}
+.parea.open{display:block;}
+.parea input,.parea textarea{margin-bottom:6px;}
+.parea textarea{min-height:78px;}
  
 /* RESULTS */
-.results{padding:24px 28px;overflow-y:auto;}
+.results{padding:22px 26px;overflow-y:auto;}
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:65vh;text-align:center;}
-.empty-ring{width:70px;height:70px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;color:var(--text3);}
-.empty-h{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--text2);margin-bottom:8px;}
-.empty-s{font-size:13px;color:var(--text3);max-width:310px;line-height:1.65;}
+.empty-ring{width:68px;height:68px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:25px;margin-bottom:17px;color:var(--text3);}
+.empty-h{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--text2);margin-bottom:7px;}
+.empty-s{font-size:13px;color:var(--text3);max-width:300px;line-height:1.65;}
 .loading{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:65vh;text-align:center;}
 .loading.show{display:flex;}
-.spin{width:52px;height:52px;border-radius:50%;border:2px solid var(--border2);border-top-color:var(--gold);animation:spin 1s linear infinite;margin-bottom:18px;}
+.spin{width:50px;height:50px;border-radius:50%;border:2px solid var(--border2);border-top-color:var(--gold);animation:spin 1s linear infinite;margin-bottom:17px;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.load-h{font-size:15px;color:var(--text2);margin-bottom:5px;}
-.load-s{font-size:12px;color:var(--text3);}
-.load-prog{margin-top:18px;width:240px;}
-.prog-bar{background:var(--border2);height:3px;border-radius:2px;overflow:hidden;}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s ease;width:0%;}
-.prog-label{font-size:11px;color:var(--text3);margin-top:7px;text-align:center;}
-.rh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
-.rc{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;}
+.lh{font-size:15px;color:var(--text2);margin-bottom:5px;}
+.ls{font-size:12px;color:var(--text3);}
+.lprog{margin-top:18px;width:240px;}
+.pbar{background:var(--border2);height:3px;border-radius:2px;overflow:hidden;}
+.pfill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s ease;width:0%;}
+.plbl{font-size:11px;color:var(--text3);margin-top:6px;text-align:center;}
+ 
+.rh{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:17px;padding-bottom:13px;border-bottom:1px solid var(--border);}
+.rc{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;}
 .rc span{color:var(--gold);}
 .rm{font-size:11px;color:var(--text3);margin-top:2px;}
 .sort-row{display:flex;gap:6px;align-items:center;}
-.sort-btn{font-family:'Outfit',sans-serif;font-size:11px;padding:5px 10px;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;}
-.sort-btn.active{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
+.sb{font-family:'Outfit',sans-serif;font-size:11px;padding:5px 10px;border-radius:5px;border:1px solid var(--border2);background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;}
+.sb.active{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
  
 /* JOB CARDS */
-.jcard{background:var(--surface);border:1px solid var(--border);border-radius:13px;margin-bottom:13px;overflow:hidden;animation:up .35s ease both;transition:border-color .2s,box-shadow .2s;}
-.jcard:hover{border-color:var(--border2);box-shadow:0 4px 24px rgba(0,0,0,.3);}
-.jcard:nth-child(2){animation-delay:.06s;}.jcard:nth-child(3){animation-delay:.12s;}.jcard:nth-child(4){animation-delay:.18s;}.jcard:nth-child(5){animation-delay:.24s;}
-@keyframes up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-.jcard-head{padding:18px 20px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start;}
-.j-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;margin-bottom:3px;line-height:1.2;}
-.j-company{font-size:13px;font-weight:500;color:var(--gold);margin-bottom:8px;}
-.j-tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
-.jtag{font-size:11px;padding:3px 8px;border-radius:4px;background:var(--surface2);color:var(--text3);}
+.jcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;animation:up .3s ease both;transition:border-color .2s;}
+.jcard:hover{border-color:var(--border2);}
+.jcard:nth-child(2){animation-delay:.06s;}.jcard:nth-child(3){animation-delay:.12s;}.jcard:nth-child(4){animation-delay:.18s;}
+@keyframes up{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.jhead{padding:17px 19px;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:13px;align-items:start;}
+.jtitle{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:3px;line-height:1.2;}
+.jco{font-size:13px;font-weight:500;color:var(--gold);margin-bottom:7px;}
+.jtags{display:flex;flex-wrap:wrap;gap:5px;align-items:center;}
+.jtag{font-size:11px;padding:3px 7px;border-radius:4px;background:var(--surface2);color:var(--text3);}
 .jtag.portal{background:var(--blue-dim);color:var(--blue);}
 .jtag.sh{background:var(--green-dim);color:var(--green);font-weight:600;}
 .jtag.sm{background:var(--amber-dim);color:var(--amber);font-weight:600;}
 .jtag.sl{background:var(--red-dim);color:var(--red);font-weight:600;}
 .fit-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
-.fit-ring{position:relative;width:66px;height:66px;}
+.fit-ring{position:relative;width:64px;height:64px;}
 .fit-ring svg{transform:rotate(-90deg);}
 .fit-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;}
 .fit-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text3);}
-.jcard-body{display:none;border-top:1px solid var(--border);}
-.jcard-body.open{display:block;}
-.analysis{padding:18px 20px;}
-.a-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
-.a-panel{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:13px;}
-.a-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:5px;}
-.a-label.g{color:var(--green);}.a-label.r{color:var(--red);}.a-label.a{color:var(--amber);}
+.jbody{display:none;border-top:1px solid var(--border);}
+.jbody.open{display:block;}
+.analysis{padding:17px 19px;}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:13px;}
+.apanel{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;}
+.albl{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:8px;}
+.albl.g{color:var(--green);}.albl.r{color:var(--red);}.albl.a{color:var(--amber);}
 ul.bl{list-style:none;}
 ul.bl li{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.55;display:flex;gap:6px;}
 ul.bl li:last-child{border-bottom:none;}
 ul.bl li::before{content:'▸';font-size:10px;margin-top:2px;flex-shrink:0;color:var(--text3);}
 ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.bl.a li::before{color:var(--amber);}
-.kw-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.kw{background:rgba(200,169,110,.12);color:var(--gold2);padding:3px 9px;border-radius:4px;font-size:11px;border:1px solid rgba(200,169,110,.18);}
-.edits-panel{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:14px;margin-bottom:14px;}
-.edit-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.kw-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+.kw{background:rgba(200,169,110,.12);color:var(--gold2);padding:3px 8px;border-radius:4px;font-size:11px;border:1px solid rgba(200,169,110,.18);}
+.edits{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:13px;margin-bottom:13px;}
+.edit-item{margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid var(--border);}
 .edit-item:last-child{margin:0;padding:0;border:none;}
-.edit-sec{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:5px;}
-.edit-old{font-size:12px;color:var(--red);background:var(--red-dim);padding:6px 10px;border-radius:5px;margin-bottom:4px;line-height:1.55;text-decoration:line-through;text-decoration-color:rgba(224,92,92,.35);}
-.edit-new{font-size:12px;color:var(--green);background:var(--green-dim);padding:6px 10px;border-radius:5px;line-height:1.55;}
-.ceo-signal{background:linear-gradient(135deg,rgba(200,169,110,.06),rgba(200,169,110,.02));border:1px solid rgba(200,169,110,.2);border-radius:9px;padding:13px;margin-bottom:14px;}
-.cs-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;}
-.cs-text{font-size:12.5px;color:var(--text2);line-height:1.65;}
-.rec-bar{display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:8px;margin-bottom:14px;font-size:13px;font-weight:600;}
-.rec-bar.apply-now{background:var(--green-dim);border:1px solid var(--green-border);color:var(--green);}
-.rec-bar.apply-edits{background:var(--amber-dim);border:1px solid rgba(224,168,76,.2);color:var(--amber);}
-.rec-bar.stretch{background:var(--blue-dim);border:1px solid rgba(92,143,224,.2);color:var(--blue);}
-.rec-bar.skip{background:var(--red-dim);border:1px solid rgba(224,92,92,.2);color:var(--red);}
-.rec-reason{font-size:12px;font-weight:400;color:var(--text2);margin-left:4px;}
-.jcard-actions{display:flex;gap:8px;align-items:center;padding:13px 20px;border-top:1px solid var(--border);background:var(--surface2);}
-.btn-apply{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:9px 20px;border-radius:7px;border:none;background:var(--gold);color:#07090d;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s;}
+.edit-sec{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:4px;}
+.edit-old{font-size:12px;color:var(--red);background:var(--red-dim);padding:6px 9px;border-radius:4px;margin-bottom:4px;line-height:1.55;text-decoration:line-through;text-decoration-color:rgba(224,92,92,.35);}
+.edit-new{font-size:12px;color:var(--green);background:var(--green-dim);padding:6px 9px;border-radius:4px;line-height:1.55;}
+.ceo-sig{background:linear-gradient(135deg,rgba(200,169,110,.06),rgba(200,169,110,.02));border:1px solid rgba(200,169,110,.2);border-radius:8px;padding:12px;margin-bottom:13px;}
+.cs-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px;}
+.cs-txt{font-size:12.5px;color:var(--text2);line-height:1.65;}
+.rec-bar{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:7px;margin-bottom:13px;font-size:13px;font-weight:600;}
+.rec-bar.an{background:var(--green-dim);border:1px solid var(--green-b);color:var(--green);}
+.rec-bar.ae{background:var(--amber-dim);border:1px solid rgba(224,168,76,.2);color:var(--amber);}
+.rec-bar.sr{background:var(--blue-dim);border:1px solid rgba(92,143,224,.2);color:var(--blue);}
+.rec-bar.sk{background:var(--red-dim);border:1px solid rgba(224,92,92,.2);color:var(--red);}
+.rec-r{font-size:12px;font-weight:400;color:var(--text2);margin-left:3px;}
+.jactions{display:flex;gap:8px;align-items:center;padding:12px 19px;border-top:1px solid var(--border);background:var(--surface2);}
+.btn-apply{font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;padding:9px 18px;border-radius:6px;border:none;background:var(--gold);color:#07090d;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:5px;transition:all .2s;}
 .btn-apply:hover{background:var(--gold2);}
-.btn-apply.nolink{background:var(--border2);color:var(--text3);cursor:default;}
-.btn-jd{font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;padding:9px 13px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;}
+.btn-apply.nl{background:var(--border2);color:var(--text3);cursor:default;}
+.btn-jd{font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;padding:9px 12px;border-radius:6px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .2s;}
 .btn-jd:hover{border-color:var(--text2);color:var(--text);}
-.act-note{font-size:11px;color:var(--text3);margin-left:auto;}
-.err-card{background:var(--red-dim);border:1px solid rgba(224,92,92,.2);border-radius:9px;padding:14px 16px;font-size:13px;color:var(--red);margin-bottom:12px;line-height:1.6;}
-.jd-overlay{position:fixed;inset:0;background:rgba(3,5,8,.95);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
-.jd-overlay.open{display:flex;}
-.jd-box{background:var(--surface);border:1px solid var(--border2);border-radius:13px;width:100%;max-width:580px;max-height:82vh;overflow-y:auto;}
-.jd-head{padding:17px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);}
-.jd-title{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;}
-.close{background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;padding:4px;line-height:1;}
-.jd-body{padding:18px 22px;font-size:13px;color:var(--text2);line-height:1.7;white-space:pre-wrap;}
-@media(max-width:768px){.main{grid-template-columns:1fr;}.sidebar{border-right:none;border-bottom:1px solid var(--border);}.a-grid{grid-template-columns:1fr;}}
+.anote{font-size:11px;color:var(--text3);margin-left:auto;}
+.err-card{background:var(--red-dim);border:1px solid rgba(224,92,92,.2);border-radius:8px;padding:13px 15px;font-size:13px;color:var(--red);margin-bottom:12px;line-height:1.6;}
+ 
+/* JD MODAL */
+.jdov{position:fixed;inset:0;background:rgba(3,5,8,.95);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
+.jdov.open{display:flex;}
+.jdbox{background:var(--surface);border:1px solid var(--border2);border-radius:12px;width:100%;max-width:560px;max-height:82vh;overflow-y:auto;}
+.jdhead{padding:16px 21px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--surface);}
+.jdtitle{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;}
+.cls{background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;padding:4px;line-height:1;}
+.jdbody{padding:17px 21px;font-size:13px;color:var(--text2);line-height:1.7;white-space:pre-wrap;}
+ 
+@media(max-width:768px){.main{grid-template-columns:1fr;}.sidebar{border-right:none;border-bottom:1px solid var(--border);}.agrid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -212,53 +207,41 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
 <!-- SETUP MODAL -->
 <div class="overlay" id="setupModal">
   <div class="modal">
-    <div class="modal-top">
-      <div class="modal-pill">Setup · Free · One-time</div>
-      <div class="modal-h">JobFit AI — CEO Track</div>
-      <div class="modal-sub">Fully automatic: searches jobs, reads JDs, scores your CV fit, shows gaps and edit suggestions — one click.</div>
+    <div class="mtop">
+      <div class="mpill">Setup · 100% Free · One-time</div>
+      <div class="mh">JobFit AI — CEO Track</div>
+      <div class="ms">Fully automatic job search + CV matching. Uses JSearch (free) for jobs and Groq AI (free) for analysis.</div>
     </div>
-    <div class="m-tabs">
-      <div class="m-tab active" onclick="switchTab('keys')">API Keys</div>
-      <div class="m-tab" onclick="switchTab('cv')">Your CV</div>
-      <div class="m-tab" onclick="switchTab('prefs')">Preferences</div>
-      <div class="m-tab" onclick="switchTab('help')">How to Get Keys</div>
+    <div class="mtabs">
+      <div class="mtab active" onclick="sTab('keys')">API Keys</div>
+      <div class="mtab" onclick="sTab('cv')">Your CV</div>
+      <div class="mtab" onclick="sTab('prefs')">Preferences</div>
+      <div class="mtab" onclick="sTab('help')">How to Get Keys</div>
     </div>
  
-    <!-- KEYS PANE -->
-    <div class="m-pane active" id="pane-keys">
-      <div class="alert-green" style="margin-bottom:16px;">
-        <strong>✓ Browser-compatible APIs only.</strong> Both keys work directly from GitHub Pages — no server needed.
-      </div>
+    <div class="mpane active" id="pane-keys">
+      <div class="abox abox-green"><strong>✓ Browser-compatible.</strong> Both APIs work directly from GitHub Pages — no server needed. Both completely free.</div>
       <div class="fg">
         <div class="fl">JSearch API Key (RapidAPI) <span class="req">*</span></div>
         <input type="password" id="jsearchKey" placeholder="Your RapidAPI key..." />
-        <div class="ibox">
-          Free at <a href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch" target="_blank">rapidapi.com → search "JSearch"</a> → Subscribe Free → copy your key. 200 free searches/month. Searches LinkedIn, Indeed, Glassdoor, Naukri & more.
-        </div>
+        <div class="ibox">Free at <a href="https://rapidapi.com" target="_blank">rapidapi.com</a> → search <strong>"JSearch"</strong> → Subscribe Free → copy your key. 200 free searches/month.</div>
       </div>
       <div class="fg">
         <div class="fl">Groq API Key <span class="req">*</span></div>
-        <input type="password" id="geminiKey" placeholder="gsk_..." />
-        <div class="ibox">
-          Free at <a href="https://console.groq.com" target="_blank">console.groq.com</a> → Sign up free (Google login) → API Keys → Create API Key. Completely free, no credit card, no quota issues.
-        </div>
-      </div>
-      <div class="alert-green">
-        🔒 Both keys stored only in your browser. Never sent anywhere except directly to the respective APIs.
+        <input type="password" id="groqKey" placeholder="gsk_..." />
+        <div class="ibox">Free at <a href="https://console.groq.com" target="_blank">console.groq.com</a> → Sign up → API Keys → Create API Key. Completely free, no credit card, no quota issues.</div>
       </div>
     </div>
  
-    <!-- CV PANE -->
-    <div class="m-pane" id="pane-cv">
+    <div class="mpane" id="pane-cv">
       <div class="fg">
         <div class="fl">Full CV Text <span class="req">*</span></div>
-        <textarea id="cvText" rows="13" placeholder="Open your CV PDF or Word doc → Select All (Ctrl+A) → Copy (Ctrl+C) → Paste here (Ctrl+V).&#10;&#10;Include everything: work experience, education, achievements, skills. The more complete, the better the AI matching."></textarea>
-        <div class="ibox">Tip: Copy from your Word doc rather than PDF for cleaner text.</div>
+        <textarea id="cvText" rows="13" placeholder="Open your CV Word doc or PDF → Select All (Ctrl+A) → Copy (Ctrl+C) → Paste here (Ctrl+V).&#10;&#10;Include everything: work experience, education, achievements, skills."></textarea>
+        <div class="ibox">Tip: Copy from Word doc for cleaner text. Include all bullet points and numbers.</div>
       </div>
     </div>
  
-    <!-- PREFS PANE -->
-    <div class="m-pane" id="pane-prefs">
+    <div class="mpane" id="pane-prefs">
       <div class="fg">
         <div class="fl">Your Name</div>
         <input type="text" id="userName" placeholder="e.g. Sameeksha Sharma" />
@@ -273,46 +256,44 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
       </div>
       <div class="fg">
         <div class="fl">CEO Goal Context</div>
-        <textarea rows="3" id="ceoContext" placeholder="e.g. Targeting CEO by 2035. Currently Chief of Staff at Raychem RPG. IIM graduate. 7 years across pharma, consulting, industrials. Critical gap: no direct P&L ownership yet. Need BU Head or COO role as next step."></textarea>
+        <textarea rows="3" id="ceoContext" placeholder="e.g. Targeting CEO by 2035. Currently Chief of Staff at Raychem RPG. IIM graduate. 7 years across pharma, consulting, industrials. Critical gap: no direct P&L ownership yet."></textarea>
       </div>
     </div>
  
-    <!-- HELP PANE -->
-    <div class="m-pane" id="pane-help">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:14px;">Getting Your JSearch Key (5 min)</div>
+    <div class="mpane" id="pane-help">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;margin-bottom:13px;">Getting Your JSearch Key (5 min, free)</div>
       <div class="ks-list">
-        <div class="ks"><div class="ks-num">1</div><div class="ks-text">Go to <strong>rapidapi.com</strong> → click Sign Up → use Google login (easiest)</div></div>
-        <div class="ks"><div class="ks-num">2</div><div class="ks-text">In the search bar at the top, type <strong>JSearch</strong> and press Enter</div></div>
-        <div class="ks"><div class="ks-num">3</div><div class="ks-text">Click the result called <strong>"JSearch"</strong> by letscrape</div></div>
-        <div class="ks"><div class="ks-num">4</div><div class="ks-text">Click <strong>"Subscribe to Test"</strong> → select the <strong>Basic (Free)</strong> plan → click Subscribe</div></div>
-        <div class="ks"><div class="ks-num">5</div><div class="ks-text">You'll see your key under <strong>"X-RapidAPI-Key"</strong> in the right panel — copy it</div></div>
-        <div class="ks"><div class="ks-num">6</div><div class="ks-text">Paste it in the <strong>API Keys tab</strong> above</div></div>
+        <div class="ks"><div class="ks-n">1</div><div class="ks-t">Go to <strong>rapidapi.com</strong> → Sign Up using Google login</div></div>
+        <div class="ks"><div class="ks-n">2</div><div class="ks-t">In the top search bar type <strong>JSearch</strong> and press Enter</div></div>
+        <div class="ks"><div class="ks-n">3</div><div class="ks-t">Click the JSearch result → click <strong>"Subscribe to Test"</strong></div></div>
+        <div class="ks"><div class="ks-n">4</div><div class="ks-t">Select the <strong>Free plan</strong> → Subscribe</div></div>
+        <div class="ks"><div class="ks-n">5</div><div class="ks-t">Copy your key from the <strong>"X-RapidAPI-Key"</strong> field on the right panel</div></div>
       </div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin:20px 0 14px;">Getting Your Groq Key (2 min)</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;margin:18px 0 13px;">Getting Your Groq Key (2 min, free)</div>
       <div class="ks-list">
-        <div class="ks"><div class="ks-num">1</div><div class="ks-text">Go to <strong>aistudio.google.com/app/apikey</strong></div></div>
-        <div class="ks"><div class="ks-num">2</div><div class="ks-text">Sign in with your <strong>Google / Gmail account</strong></div></div>
-        <div class="ks"><div class="ks-num">3</div><div class="ks-text">Click <strong>"Create API Key"</strong> → then <strong>"Create API key in new project"</strong></div></div>
-        <div class="ks"><div class="ks-num">4</div><div class="ks-text">Copy the key (starts with gsk_...) → paste in API Keys tab above</div></div>
+        <div class="ks"><div class="ks-n">1</div><div class="ks-t">Go to <strong>console.groq.com</strong> → Sign up with Google</div></div>
+        <div class="ks"><div class="ks-n">2</div><div class="ks-t">Click <strong>"API Keys"</strong> in the left sidebar</div></div>
+        <div class="ks"><div class="ks-n">3</div><div class="ks-t">Click <strong>"Create API Key"</strong> → name it anything → Create</div></div>
+        <div class="ks"><div class="ks-n">4</div><div class="ks-t">Copy the key starting with <strong>gsk_...</strong> → paste in the API Keys tab</div></div>
       </div>
-      <div class="alert-green" style="margin-top:4px;">Both are completely free. No credit card required for either.</div>
+      <div class="abox abox-green" style="margin-top:4px;">Both are completely free. No credit card required.</div>
     </div>
  
-    <div class="modal-foot">
-      <button class="btn-g" onclick="closeSetup()">Done</button>
+    <div class="mfoot">
+      <button class="btn-g2" onclick="closeSetup()">Done</button>
       <button class="btn-p" onclick="saveSetup()">Save & Start →</button>
     </div>
   </div>
 </div>
  
 <!-- JD MODAL -->
-<div class="jd-overlay" id="jdModal">
-  <div class="jd-box">
-    <div class="jd-head">
-      <div class="jd-title" id="jdTitle">Job Description</div>
-      <button class="close" onclick="document.getElementById('jdModal').classList.remove('open')">✕</button>
+<div class="jdov" id="jdModal">
+  <div class="jdbox">
+    <div class="jdhead">
+      <div class="jdtitle" id="jdTitle">Job Description</div>
+      <button class="cls" onclick="document.getElementById('jdModal').classList.remove('open')">✕</button>
     </div>
-    <div class="jd-body" id="jdBody"></div>
+    <div class="jdbody" id="jdBody"></div>
   </div>
 </div>
  
@@ -323,30 +304,28 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
     <div class="logo-text">Job<span>Fit</span> AI</div>
     <div class="free-pill">Free</div>
   </div>
-  <div class="header-right">
+  <div class="hdr">
     <div style="font-size:11px;color:var(--text3);display:flex;align-items:center;gap:6px;">
-      <span id="statusDot" style="width:6px;height:6px;border-radius:50%;background:var(--text3);display:inline-block;transition:all .3s;"></span>
-      <span id="statusTxt">Not configured</span>
+      <span id="dot" style="width:6px;height:6px;border-radius:50%;background:var(--text3);display:inline-block;transition:all .3s;"></span>
+      <span id="dotTxt">Not configured</span>
     </div>
-    <button class="hbtn hbtn-ghost" onclick="openSetup('keys')">⚙ Settings</button>
-    <button class="hbtn hbtn-ghost" onclick="openSetup('cv')">Update CV</button>
-    <button class="hbtn hbtn-gold" onclick="openSetup('help')">? Get API Keys</button>
+    <button class="hbtn hbtn-g" onclick="openSetup('keys')">⚙ Settings</button>
+    <button class="hbtn hbtn-g" onclick="openSetup('cv')">Update CV</button>
+    <button class="hbtn hbtn-gold" onclick="openSetup('help')">? Get Keys</button>
   </div>
 </header>
  
 <!-- MAIN -->
 <div class="main">
   <div class="sidebar">
-    <div class="sb-inner">
- 
-      <div class="sb-sec">
-        <div class="sb-label">Describe What You Want</div>
+    <div class="sbi">
+      <div class="sbs">
+        <div class="sbl">Describe What You Want</div>
         <textarea class="sq" id="searchQuery" placeholder="e.g. BU Head or COO in specialty pharma or industrial manufacturing India, P&L ownership"></textarea>
         <div class="sh">Plain English. Specific role level + sector = better results.</div>
       </div>
- 
-      <div class="sb-sec">
-        <div class="sb-label">Filters</div>
+      <div class="sbs">
+        <div class="sbl">Filters</div>
         <div class="fr"><label>Location</label>
           <select id="fLoc">
             <option value="India">Pan India</option>
@@ -360,66 +339,50 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         </div>
         <div class="fr"><label>Max Results</label>
           <select id="fMax">
-            <option value="5">5 jobs</option>
+            <option value="3">3 jobs (fastest)</option>
             <option value="5" selected>5 jobs</option>
-            <option value="10">10 jobs</option>
+            <option value="8">8 jobs</option>
           </select>
         </div>
       </div>
- 
-      <div class="sb-sec">
-        <div class="sb-label">Source Portals</div>
+      <div class="sbs">
+        <div class="sbl">Source Portals</div>
         <div class="portals">
-          <div class="ptoggle on" onclick="toggleP(this,'linkedin')">
-            <div class="pcheck">✓</div><span class="pname">LinkedIn Jobs</span><span class="pbadge">JSearch</span>
-          </div>
-          <div class="ptoggle on" onclick="toggleP(this,'indeed')">
-            <div class="pcheck">✓</div><span class="pname">Indeed India</span><span class="pbadge">JSearch</span>
-          </div>
-          <div class="ptoggle on" onclick="toggleP(this,'glassdoor')">
-            <div class="pcheck">✓</div><span class="pname">Glassdoor</span><span class="pbadge">JSearch</span>
-          </div>
-          <div class="ptoggle on" onclick="toggleP(this,'naukri')">
-            <div class="pcheck">✓</div><span class="pname">Naukri / Others</span><span class="pbadge">JSearch</span>
-          </div>
+          <div class="pt on" onclick="toggleP(this,'linkedin')"><div class="pck">✓</div><span class="pnm">LinkedIn Jobs</span><span class="pbg">JSearch</span></div>
+          <div class="pt on" onclick="toggleP(this,'indeed')"><div class="pck">✓</div><span class="pnm">Indeed India</span><span class="pbg">JSearch</span></div>
+          <div class="pt on" onclick="toggleP(this,'glassdoor')"><div class="pck">✓</div><span class="pnm">Glassdoor</span><span class="pbg">JSearch</span></div>
+          <div class="pt on" onclick="toggleP(this,'naukri')"><div class="pck">✓</div><span class="pnm">Naukri / Others</span><span class="pbg">JSearch</span></div>
         </div>
-        <div class="sh" style="margin-top:8px;">JSearch aggregates all major portals including Iimjobs, Naukri, LinkedIn, Indeed, Glassdoor automatically.</div>
+        <div class="sh" style="margin-top:7px;">JSearch aggregates LinkedIn, Indeed, Naukri, Glassdoor, Iimjobs automatically.</div>
       </div>
- 
-      <button class="btn-search" id="searchBtn" onclick="runSearch()">
-        <span>⟳</span> Search &amp; Analyse Jobs
-      </button>
- 
-      <hr class="div">
- 
-      <div class="sb-sec">
-        <div class="paste-toggle" onclick="togglePaste()"><span id="pArr">▸</span> Paste a single JD manually</div>
-        <div class="paste-area" id="pasteArea">
+      <button class="btn-search" onclick="runSearch()">⟳ Search &amp; Analyse Jobs</button>
+      <hr class="dv">
+      <div class="sbs">
+        <div class="ptog" onclick="togglePaste()"><span id="pArr">▸</span> Paste a single JD manually</div>
+        <div class="parea" id="pasteArea">
           <textarea id="mJD" placeholder="Paste full job description here..."></textarea>
           <input type="text" id="mTitle" placeholder="Job title (optional)" />
           <input type="text" id="mCompany" placeholder="Company (optional)" />
-          <input type="text" id="mURL" placeholder="Apply link from job portal" />
+          <input type="text" id="mURL" placeholder="Apply link from portal" />
           <button class="btn-search" style="margin-top:2px;" onclick="analyseManual()">Analyse This JD →</button>
         </div>
       </div>
- 
     </div>
   </div>
  
-  <!-- RESULTS -->
   <div class="results" id="resultsPane">
     <div class="empty" id="emptyState">
       <div class="empty-ring">◎</div>
       <div class="empty-h">Ready to Find Your Next Role</div>
-      <div class="empty-s">Configure your API keys, paste your CV, describe what you want, and hit Search. Every result is automatically matched against your CV.</div>
+      <div class="empty-s">Configure your keys, paste your CV, describe what you want, and hit Search. Every result is automatically matched against your CV.</div>
     </div>
     <div class="loading" id="loadingState">
       <div class="spin"></div>
-      <div class="load-h" id="loadH">Searching job portals...</div>
-      <div class="load-s" id="loadS">Powered by JSearch + Groq AI</div>
-      <div class="load-prog">
-        <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
-        <div class="prog-label" id="progLabel">Initialising...</div>
+      <div class="lh" id="lh">Searching job portals...</div>
+      <div class="ls" id="ls">Powered by JSearch + Groq AI</div>
+      <div class="lprog">
+        <div class="pbar"><div class="pfill" id="pfill"></div></div>
+        <div class="plbl" id="plbl">Initialising...</div>
       </div>
     </div>
     <div id="resultsWrap" style="display:none;">
@@ -430,8 +393,8 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         </div>
         <div class="sort-row">
           <span style="font-size:11px;color:var(--text3)">Sort:</span>
-          <button class="sort-btn active" onclick="sortBy('fit',this)">Best Fit</button>
-          <button class="sort-btn" onclick="sortBy('alpha',this)">Company A–Z</button>
+          <button class="sb active" onclick="sortBy('fit',this)">Best Fit</button>
+          <button class="sb" onclick="sortBy('alpha',this)">Company A–Z</button>
         </div>
       </div>
       <div id="jobsList"></div>
@@ -441,118 +404,112 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
 </div>
  
 <script>
+// ── MODEL — current active Groq model as of 2025 ──
+const GROQ_MODEL = 'llama-3.1-8b-instant';
+ 
 // ── STATE ──
 const S = {
-  jsearchKey:'', geminiKey:'', cvText:'',
+  jsearchKey:'', groqKey:'', cvText:'',
   userName:'', targetRoles:'', targetIndustries:'', ceoContext:'',
   jobs:[], activePortals:['linkedin','indeed','glassdoor','naukri']
 };
  
 // ── INIT ──
 window.onload = () => {
-  const saved = localStorage.getItem('jf_v5');
+  const saved = localStorage.getItem('jf_v6');
   if (saved) Object.assign(S, JSON.parse(saved));
-  prefill(); updateStatus();
-  if (S.jsearchKey && S.geminiKey && S.cvText) {
+  prefill(); updateDot();
+  if (S.jsearchKey && S.groqKey && S.cvText) {
     document.getElementById('setupModal').style.display = 'none';
   }
 };
  
 function prefill() {
-  const m = {jsearchKey:'jsearchKey',geminiKey:'geminiKey',cvText:'cvText',
+  const m = {jsearchKey:'jsearchKey',groqKey:'groqKey',cvText:'cvText',
     userName:'userName',targetRoles:'targetRoles',targetIndustries:'targetIndustries',ceoContext:'ceoContext'};
   Object.entries(m).forEach(([k,id]) => { const el=document.getElementById(id); if(el&&S[k]) el.value=S[k]; });
 }
  
-function updateStatus() {
-  const ok = S.jsearchKey && S.geminiKey && S.cvText;
-  const dot = document.getElementById('statusDot');
+function updateDot() {
+  const ok = S.jsearchKey && S.groqKey && S.cvText;
+  const dot = document.getElementById('dot');
   dot.style.background = ok ? 'var(--green)' : 'var(--text3)';
   dot.style.boxShadow = ok ? '0 0 6px var(--green)' : 'none';
-  document.getElementById('statusTxt').textContent = ok ? 'Ready' : 'Setup required';
+  document.getElementById('dotTxt').textContent = ok ? 'Ready' : 'Setup required';
 }
  
 // ── SETUP ──
-function openSetup(tab) {
-  document.getElementById('setupModal').style.display = 'flex';
-  prefill(); if (tab) switchTab(tab);
-}
-function closeSetup() {
-  document.getElementById('setupModal').style.display = 'none';
-}
-function switchTab(t) {
-  const tabs = ['keys','cv','prefs','help'];
-  document.querySelectorAll('.m-tab').forEach((el,i) => el.classList.toggle('active', tabs[i]===t));
-  document.querySelectorAll('.m-pane').forEach(el => el.classList.remove('active'));
+function openSetup(tab) { document.getElementById('setupModal').style.display='flex'; prefill(); if(tab) sTab(tab); }
+function closeSetup() { document.getElementById('setupModal').style.display='none'; }
+function sTab(t) {
+  const tabs=['keys','cv','prefs','help'];
+  document.querySelectorAll('.mtab').forEach((el,i)=>el.classList.toggle('active',tabs[i]===t));
+  document.querySelectorAll('.mpane').forEach(el=>el.classList.remove('active'));
   document.getElementById('pane-'+t).classList.add('active');
 }
 function saveSetup() {
-  ['jsearchKey','geminiKey','cvText','userName','targetRoles','targetIndustries','ceoContext'].forEach(k => {
-    const el = document.getElementById(k); if (el) S[k] = el.value.trim();
-  });
-  if (!S.jsearchKey) { alert('Please enter your JSearch (RapidAPI) key.'); switchTab('keys'); return; }
-  if (!S.geminiKey)  { alert('Please enter your Groq API key.'); switchTab('keys'); return; }
-  if (!S.cvText)     { alert('Please paste your CV text.'); switchTab('cv'); return; }
-  localStorage.setItem('jf_v5', JSON.stringify(S));
-  document.getElementById('setupModal').style.display = 'none';
-  updateStatus();
+  const m = {jsearchKey:'jsearchKey',groqKey:'groqKey',cvText:'cvText',
+    userName:'userName',targetRoles:'targetRoles',targetIndustries:'targetIndustries',ceoContext:'ceoContext'};
+  Object.entries(m).forEach(([k,id])=>{ const el=document.getElementById(id); if(el) S[k]=el.value.trim(); });
+  if (!S.jsearchKey) { alert('Please enter your JSearch (RapidAPI) key.'); sTab('keys'); return; }
+  if (!S.groqKey) { alert('Please enter your Groq API key.'); sTab('keys'); return; }
+  if (!S.cvText) { alert('Please paste your CV text.'); sTab('cv'); return; }
+  localStorage.setItem('jf_v6', JSON.stringify(S));
+  closeSetup(); updateDot();
 }
  
 // ── PORTAL TOGGLE ──
-function toggleP(el, p) {
+function toggleP(el,p) {
   el.classList.toggle('on');
-  const on = el.classList.contains('on');
-  el.querySelector('.pcheck').textContent = on ? '✓' : '';
-  S.activePortals = on ? [...new Set([...S.activePortals,p])] : S.activePortals.filter(x=>x!==p);
+  el.querySelector('.pck').textContent = el.classList.contains('on') ? '✓' : '';
+  S.activePortals = el.classList.contains('on') ? [...new Set([...S.activePortals,p])] : S.activePortals.filter(x=>x!==p);
 }
 function togglePaste() {
-  const a = document.getElementById('pasteArea');
+  const a=document.getElementById('pasteArea');
   a.classList.toggle('open');
   document.getElementById('pArr').textContent = a.classList.contains('open') ? '▾' : '▸';
 }
  
+// ── SLEEP HELPER ──
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+ 
 // ── SEARCH ──
 async function runSearch() {
-  if (!S.jsearchKey || !S.geminiKey || !S.cvText) {
-    alert('Please complete setup first — click "Settings" or "Get API Keys".'); openSetup('keys'); return;
-  }
+  if (!S.jsearchKey || !S.groqKey || !S.cvText) { alert('Please complete setup first.'); openSetup('keys'); return; }
   const q = document.getElementById('searchQuery').value.trim();
   if (!q) { alert('Please describe the type of role you\'re looking for.'); return; }
- 
   const loc = document.getElementById('fLoc').value;
   const max = parseInt(document.getElementById('fMax').value);
  
   showLoading();
-  setProgress(5, 'Connecting to JSearch API...');
+  setP(5, 'Connecting to JSearch API...');
  
   try {
     const jobs = await fetchJobs(q, loc, max);
-    if (!jobs.length) {
-      hideLoading(); showError('No jobs found. Try a broader search description or different location.');
-      return;
-    }
-    setProgress(20, `Found ${jobs.length} jobs — analysing with Gemini AI...`);
+    if (!jobs.length) { hideLoading(); showErr('No jobs found. Try a broader description or different location.'); return; }
+    setP(20, `Found ${jobs.length} jobs — analysing with Groq AI (${GROQ_MODEL})...`);
  
     const results = [];
     for (let i = 0; i < jobs.length; i++) {
       const pct = 20 + Math.round(((i+1)/jobs.length)*76);
-      setProgress(pct, `Analysing ${i+1} of ${jobs.length}: ${jobs[i].title.slice(0,38)}${i>0?' (waiting 3s to avoid rate limit...)':''}`);
-      if (i > 0) await new Promise(r => setTimeout(r, 3000)); // 3s delay to avoid rate limit
-      const analysis = await analyseWithGemini(jobs[i]);
+      setP(pct, `Analysing ${i+1} of ${jobs.length}: ${jobs[i].title.slice(0,35)}...`);
+      if (i > 0) await sleep(4000); // 4s gap to stay within rate limits
+      const analysis = await analyse(jobs[i]);
       results.push({...jobs[i], analysis});
     }
  
-    setProgress(100, 'Done!');
-    setTimeout(() => { S.jobs = results; renderResults(results); }, 400);
- 
+    setP(100, 'Done!');
+    await sleep(400);
+    S.jobs = results;
+    renderResults(results);
   } catch(e) {
     hideLoading();
-    showError('Error: ' + e.message);
+    showErr('Error: ' + e.message);
     console.error(e);
   }
 }
  
-// ── JSEARCH FETCH (browser-compatible) ──
+// ── JSEARCH ──
 async function fetchJobs(query, location, max) {
   const url = new URL('https://jsearch.p.rapidapi.com/search');
   url.searchParams.set('query', query + ' ' + location);
@@ -571,136 +528,110 @@ async function fetchJobs(query, location, max) {
  
   if (!resp.ok) {
     const err = await resp.json().catch(()=>({}));
-    const msg = err.message || err.error || ('JSearch API error ' + resp.status);
-    if (resp.status === 403 || resp.status === 401) {
-      throw new Error('Invalid JSearch API key. Please check it at rapidapi.com → My Apps → Application → Authorization.');
-    }
-    throw new Error(msg + '\n\nPlease verify your RapidAPI key in Settings.');
+    if (resp.status===401||resp.status===403) throw new Error('Invalid JSearch API key. Please verify it at rapidapi.com.');
+    throw new Error(err.message || 'JSearch error ' + resp.status);
   }
  
   const data = await resp.json();
-  const jobs = (data.data || []).slice(0, max);
- 
-  return jobs.map(j => ({
+  return (data.data||[]).slice(0,max).map(j=>({
     id: j.job_id || Math.random().toString(36).slice(2),
     title: j.job_title || 'Untitled Role',
     company: j.employer_name || '',
-    location: [j.job_city, j.job_state, j.job_country].filter(Boolean).join(', ') || location,
+    location: [j.job_city,j.job_state].filter(Boolean).join(', ') || location,
     description: j.job_description || '',
     posted: j.job_posted_at_datetime_utc ? new Date(j.job_posted_at_datetime_utc).toLocaleDateString('en-IN',{day:'numeric',month:'short'}) : '',
-    salary: j.job_min_salary && j.job_max_salary ? `₹${Math.round(j.job_min_salary/100000)}–${Math.round(j.job_max_salary/100000)} LPA` : (j.job_salary || ''),
+    salary: j.job_min_salary ? `₹${Math.round(j.job_min_salary/100000)}–${Math.round((j.job_max_salary||j.job_min_salary*1.5)/100000)} LPA` : '',
     applyLink: j.job_apply_link || j.job_google_link || '',
     portal: j.job_publisher || 'Indeed',
     via: j.job_publisher || ''
   }));
 }
  
-// ── GEMINI ANALYSIS ──
-async function analyseWithGemini(job) {
+// ── GROQ ANALYSIS ──
+async function analyse(job) {
   const name  = S.userName || 'the candidate';
   const ctx   = S.ceoContext || 'targeting CEO by 2035, currently Chief of Staff, needs P&L ownership';
   const roles = S.targetRoles || 'BU Head, COO';
   const inds  = S.targetIndustries || 'Pharma, Industrial Manufacturing';
  
-  const prompt = `You are an expert career coach for senior executives on a CEO track. Analyse this job against the candidate's CV. Return ONLY valid JSON with no markdown, no backticks, no explanation outside the JSON object.
+  // Keep prompt compact to avoid TPM limits
+  const cvSnippet = S.cvText.slice(0, 1200);
+  const jdSnippet = job.description.slice(0, 1200);
  
-CANDIDATE: ${name}
-CEO GOAL: ${ctx}
-TARGET ROLES: ${roles}
-TARGET INDUSTRIES: ${inds}
+  const prompt = `Career coach for CEO-track executive. Analyse job vs CV. Return ONLY valid JSON, no markdown.
  
-CANDIDATE CV:
-CANDIDATE CV:\n'
-${S.cvText.slice(0, 1500)}\n'
-JOB TITLE: ${job.title}
-COMPANY: ${job.company}
-LOCATION: ${job.location}
-JOB DESCRIPTION:
-JOB DESCRIPTION:\n'
-${job.description.slice(0, 1500)}\n'
-Return exactly this JSON structure:
-{
-  "fitScore": <integer 0-100>,
-  "fitReason": "<1 specific sentence explaining the score>",
-  "recommendation": "<one of: APPLY NOW, APPLY WITH EDITS, STRETCH ROLE, SKIP>",
-  "recommendationReason": "<1-2 sentences, specific to this role and CV>",
-  "strengths": ["<specific CV evidence matched to JD requirement>","<specific>","<specific>","<specific>"],
-  "gaps": ["<specific gap: what JD explicitly requires vs what CV shows>","<specific>","<specific>"],
-  "missingKeywords": ["<exact phrase from JD not in CV>","<exact phrase>","<exact phrase>","<exact phrase>"],
-  "cvEdits": [
-    {"section":"<CV section name>","original":"<current text from CV>","improved":"<rewritten with JD keywords and owner language>"},
-    {"section":"<CV section name>","original":"<current text>","improved":"<rewritten>"},
-    {"section":"<CV section name>","original":"<current text>","improved":"<rewritten>"}
-  ],
-  "ceoSignal": "<2-3 sentences: does this role advance the CEO-by-2035 path? What specific P&L scale, board exposure, or operational ownership does it add that the current Chief of Staff role lacks?>"
-}`;
+CANDIDATE: ${name} | GOAL: ${ctx} | TARGETS: ${roles} in ${inds}
+ 
+CV: ${cvSnippet}
+ 
+JOB: ${job.title} at ${job.company}, ${job.location}
+JD: ${jdSnippet}
+ 
+Return JSON:
+{"fitScore":<0-100>,"fitReason":"<1 sentence>","recommendation":"<APPLY NOW|APPLY WITH EDITS|STRETCH ROLE|SKIP>","recommendationReason":"<1-2 sentences>","strengths":["<specific>","<specific>","<specific>"],"gaps":["<specific>","<specific>","<specific>"],"missingKeywords":["<keyword>","<keyword>","<keyword>","<keyword>"],"cvEdits":[{"section":"<section>","original":"<current text>","improved":"<rewritten>"},{"section":"<section>","original":"<current text>","improved":"<rewritten>"}],"ceoSignal":"<2 sentences on CEO 2035 path advancement>"}`;
  
   const resp = await fetch('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${S.geminiKey}`
+      'Authorization': `Bearer ${S.groqKey}`
     },
     body: JSON.stringify({
-      model: 'llama-3.1-8b-instant',
+      model: GROQ_MODEL,
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.2,
-      max_tokens: 900
+      max_tokens: 800
     })
   });
  
   if (!resp.ok) {
     const err = await resp.json().catch(()=>({}));
-    throw new Error(err.error?.message || 'Groq API error ' + resp.status + '. Please check your Groq key in Settings.');
+    throw new Error(err.error?.message || 'Groq API error ' + resp.status + '. Check your Groq key in Settings.');
   }
  
   const data = await resp.json();
   const raw = data.choices?.[0]?.message?.content || '';
  
   try {
-    const clean = raw.replace(/```json|```/g,'').trim();
-    return JSON.parse(clean);
+    return JSON.parse(raw.replace(/```json|```/g,'').trim());
   } catch {
     return {
-      fitScore: 60, fitReason: 'Analysis completed — review the role details below.',
-      recommendation: 'APPLY WITH EDITS', recommendationReason: 'Relevant experience identified. Review and tailor CV before applying.',
-      strengths: ['IIM background matches requirement','Cross-sector strategy experience','Business transformation track record'],
-      gaps: ['Direct P&L ownership not yet demonstrated','Large team leadership scale unclear'],
-      missingKeywords: ['P&L ownership','EBITDA delivery','cross-functional leadership','go-to-market strategy'],
-      cvEdits: [{section:'Work Experience',original:'Current bullet point text',improved:'Reframe with owner language and embed JD keywords directly'}],
-      ceoSignal: 'This role likely offers P&L accountability and operational scale beyond the current Chief of Staff position — both critical stepping stones toward a CEO mandate by 2035.'
+      fitScore:60, fitReason:'Analysis completed — review details below.',
+      recommendation:'APPLY WITH EDITS', recommendationReason:'Relevant experience identified. Tailor CV before applying.',
+      strengths:['IIM background relevant','Cross-sector strategy experience','Business transformation track record'],
+      gaps:['Direct P&L ownership not demonstrated','Large team leadership scale unclear'],
+      missingKeywords:['P&L ownership','EBITDA delivery','cross-functional leadership','go-to-market'],
+      cvEdits:[{section:'Work Experience',original:'Current bullet',improved:'Reframe with owner language and JD keywords'}],
+      ceoSignal:'This role likely offers P&L accountability beyond the current Chief of Staff position — a key stepping stone toward CEO by 2035.'
     };
   }
 }
  
-// ── MANUAL JD ──
+// ── MANUAL ──
 async function analyseManual() {
   const jd = document.getElementById('mJD').value.trim();
   if (!jd) { alert('Please paste a job description.'); return; }
-  if (!S.geminiKey || !S.cvText) { alert('Please complete setup first.'); openSetup('keys'); return; }
+  if (!S.groqKey||!S.cvText) { alert('Please complete setup first.'); openSetup('keys'); return; }
  
   const job = {
-    id: 'manual_'+Date.now(),
-    title: document.getElementById('mTitle').value.trim() || 'Manually Added Role',
-    company: document.getElementById('mCompany').value.trim() || '',
-    location: '', description: jd, posted: 'Just added', salary: '',
-    applyLink: document.getElementById('mURL').value.trim() || '',
-    portal: 'Manual', via: 'Pasted manually'
+    id:'manual_'+Date.now(),
+    title:document.getElementById('mTitle').value.trim()||'Manually Added Role',
+    company:document.getElementById('mCompany').value.trim()||'',
+    location:'',description:jd,posted:'Just added',salary:'',
+    applyLink:document.getElementById('mURL').value.trim()||'',
+    portal:'Manual',via:'Pasted manually'
   };
  
-  showLoading(); setProgress(30, 'Analysing with Groq AI...');
- 
+  showLoading(); setP(30,'Analysing with Groq AI...');
   try {
-    const analysis = await analyseWithGemini(job);
-    setProgress(100, 'Done!');
-    setTimeout(() => {
-      const result = {...job, analysis};
-      S.jobs = [result, ...S.jobs];
-      renderResults(S.jobs);
-      ['mJD','mTitle','mCompany','mURL'].forEach(id => document.getElementById(id).value='');
-      document.getElementById('resultsPane').scrollTop = 0;
-    }, 400);
-  } catch(e) { hideLoading(); showError('Analysis error: '+e.message); }
+    const analysis = await analyse(job);
+    setP(100,'Done!');
+    await sleep(400);
+    S.jobs=[{...job,analysis},...S.jobs];
+    renderResults(S.jobs);
+    ['mJD','mTitle','mCompany','mURL'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('resultsPane').scrollTop=0;
+  } catch(e) { hideLoading(); showErr('Error: '+e.message); }
 }
  
 // ── RENDER ──
@@ -708,48 +639,48 @@ function renderResults(jobs) {
   hideLoading();
   document.getElementById('emptyState').style.display='none';
   document.getElementById('resultsWrap').style.display='block';
-  document.getElementById('rCount').textContent = jobs.length;
-  document.getElementById('rMeta').textContent = 'Sorted by CV fit · Click any card to expand full analysis';
-  const list = document.getElementById('jobsList');
+  document.getElementById('rCount').textContent=jobs.length;
+  document.getElementById('rMeta').textContent='Sorted by CV fit · Click any card to expand full analysis';
+  const list=document.getElementById('jobsList');
   list.innerHTML='';
-  jobs.forEach(job => list.appendChild(makeCard(job)));
+  jobs.forEach(job=>list.appendChild(makeCard(job)));
 }
  
 function makeCard(job) {
-  const a = job.analysis || {};
-  const score = a.fitScore || 0;
-  const col = score>=70?'var(--green)':score>=50?'var(--amber)':'var(--red)';
-  const tagCls = score>=70?'sh':score>=50?'sm':'sl';
-  const circ = 2*Math.PI*27, dash=(score/100)*circ;
-  const rec = a.recommendation||'';
-  const recCls = rec==='APPLY NOW'?'apply-now':rec==='APPLY WITH EDITS'?'apply-edits':rec==='STRETCH ROLE'?'stretch':'skip';
-  const recIcon = rec==='APPLY NOW'?'✓':rec==='APPLY WITH EDITS'?'✎':rec==='STRETCH ROLE'?'↑':'✕';
-  const hasApply = job.applyLink && job.applyLink.startsWith('http');
+  const a=job.analysis||{};
+  const score=a.fitScore||0;
+  const col=score>=70?'var(--green)':score>=50?'var(--amber)':'var(--red)';
+  const tagCls=score>=70?'sh':score>=50?'sm':'sl';
+  const circ=2*Math.PI*27, dash=(score/100)*circ;
+  const rec=a.recommendation||'';
+  const recCls=rec==='APPLY NOW'?'an':rec==='APPLY WITH EDITS'?'ae':rec==='STRETCH ROLE'?'sr':'sk';
+  const recIcon=rec==='APPLY NOW'?'✓':rec==='APPLY WITH EDITS'?'✎':rec==='STRETCH ROLE'?'↑':'✕';
+  const hasApply=job.applyLink&&job.applyLink.startsWith('http');
  
-  const card = document.createElement('div');
+  const card=document.createElement('div');
   card.className='jcard'; card.id='card-'+job.id;
   card.dataset.jd=job.description; card.dataset.score=score;
   card.dataset.title=job.title+(job.company?' — '+job.company:'');
  
   card.innerHTML=`
-    <div class="jcard-head" onclick="toggleCard('${job.id}')">
+    <div class="jhead" onclick="toggleCard('${job.id}')">
       <div>
-        <div class="j-title">${job.title}</div>
-        <div class="j-company">${job.company||'Company not specified'}</div>
-        <div class="j-tags">
+        <div class="jtitle">${job.title}</div>
+        <div class="jco">${job.company||'Company not specified'}</div>
+        <div class="jtags">
           ${job.location?`<span class="jtag">📍 ${job.location}</span>`:''}
           ${job.salary?`<span class="jtag">💰 ${job.salary}</span>`:''}
           ${job.posted?`<span class="jtag">🕒 ${job.posted}</span>`:''}
           <span class="jtag portal">${job.portal}</span>
           ${rec?`<span class="jtag ${tagCls}">${recIcon} ${rec}</span>`:''}
         </div>
-        ${a.fitReason?`<div style="font-size:11.5px;color:var(--text3);margin-top:7px;line-height:1.5;">${a.fitReason}</div>`:''}
+        ${a.fitReason?`<div style="font-size:11.5px;color:var(--text3);margin-top:6px;line-height:1.5;">${a.fitReason}</div>`:''}
       </div>
       <div class="fit-wrap">
         <div class="fit-ring">
-          <svg width="66" height="66" viewBox="0 0 66 66">
-            <circle cx="33" cy="33" r="27" fill="none" stroke="var(--border2)" stroke-width="4"/>
-            <circle cx="33" cy="33" r="27" fill="none" stroke="${col}" stroke-width="4"
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="27" fill="none" stroke="var(--border2)" stroke-width="4"/>
+            <circle cx="32" cy="32" r="27" fill="none" stroke="${col}" stroke-width="4"
               stroke-dasharray="${dash.toFixed(1)} ${(circ-dash).toFixed(1)}" stroke-linecap="round"/>
           </svg>
           <div class="fit-num" style="color:${col}">${score}%</div>
@@ -757,21 +688,21 @@ function makeCard(job) {
         <div class="fit-lbl">CV Fit</div>
       </div>
     </div>
-    <div class="jcard-body" id="body-${job.id}">
+    <div class="jbody" id="body-${job.id}">
       <div class="analysis">
-        ${rec?`<div class="rec-bar ${recCls}">${recIcon} ${rec}<span class="rec-reason">— ${a.recommendationReason||''}</span></div>`:''}
-        <div class="a-grid">
-          <div class="a-panel"><div class="a-label g">✓ Your Strengths</div><ul class="bl g">${(a.strengths||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
-          <div class="a-panel"><div class="a-label r">✗ Gaps in Your Profile</div><ul class="bl r">${(a.gaps||[]).map(g=>`<li>${g}</li>`).join('')}</ul></div>
+        ${rec?`<div class="rec-bar ${recCls}">${recIcon} ${rec}<span class="rec-r">— ${a.recommendationReason||''}</span></div>`:''}
+        <div class="agrid">
+          <div class="apanel"><div class="albl g">✓ Your Strengths</div><ul class="bl g">${(a.strengths||[]).map(s=>`<li>${s}</li>`).join('')}</ul></div>
+          <div class="apanel"><div class="albl r">✗ Gaps in Your Profile</div><ul class="bl r">${(a.gaps||[]).map(g=>`<li>${g}</li>`).join('')}</ul></div>
         </div>
-        ${a.missingKeywords?.length?`<div class="a-panel" style="margin-bottom:14px;"><div class="a-label a">⚑ Missing Keywords — Add to CV Before Applying</div><div class="kw-row">${a.missingKeywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div></div>`:''}
-        ${a.cvEdits?.length?`<div class="edits-panel"><div class="a-label a" style="margin-bottom:12px;">✎ CV Edits Suggested for This Role</div>${a.cvEdits.map(e=>`<div class="edit-item"><div class="edit-sec">${e.section}</div><div class="edit-old">${e.original}</div><div class="edit-new">${e.improved}</div></div>`).join('')}</div>`:''}
-        ${a.ceoSignal?`<div class="ceo-signal"><div class="cs-label">◈ CEO Track Signal — 2035 Path</div><div class="cs-text">${a.ceoSignal}</div></div>`:''}
+        ${a.missingKeywords?.length?`<div class="apanel" style="margin-bottom:13px;"><div class="albl a">⚑ Missing Keywords — Add to CV Before Applying</div><div class="kw-row">${a.missingKeywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div></div>`:''}
+        ${a.cvEdits?.length?`<div class="edits"><div class="albl a" style="margin-bottom:11px;">✎ Suggested CV Edits for This Role</div>${a.cvEdits.map(e=>`<div class="edit-item"><div class="edit-sec">${e.section}</div><div class="edit-old">${e.original}</div><div class="edit-new">${e.improved}</div></div>`).join('')}</div>`:''}
+        ${a.ceoSignal?`<div class="ceo-sig"><div class="cs-lbl">◈ CEO Track Signal — 2035 Path</div><div class="cs-txt">${a.ceoSignal}</div></div>`:''}
       </div>
-      <div class="jcard-actions">
-        ${hasApply?`<a class="btn-apply" href="${job.applyLink}" target="_blank" rel="noopener">Apply Now ↗</a>`:`<span class="btn-apply nolink">No Apply Link</span>`}
+      <div class="jactions">
+        ${hasApply?`<a class="btn-apply" href="${job.applyLink}" target="_blank" rel="noopener">Apply Now ↗</a>`:`<span class="btn-apply nl">No Apply Link</span>`}
         ${job.description?`<button class="btn-jd" onclick="showJD('${job.id}',event)">View Full JD</button>`:''}
-        <span class="act-note">${job.via?'via '+job.via:''}</span>
+        <span class="anote">${job.via?'via '+job.via:''}</span>
       </div>
     </div>`;
   return card;
@@ -779,44 +710,44 @@ function makeCard(job) {
  
 function toggleCard(id) { document.getElementById('body-'+id).classList.toggle('open'); }
  
-function sortBy(by, btn) {
-  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
+function sortBy(by,btn) {
+  document.querySelectorAll('.sb').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const s = [...S.jobs];
-  if (by==='fit') s.sort((a,b)=>(b.analysis?.fitScore||0)-(a.analysis?.fitScore||0));
+  const s=[...S.jobs];
+  if(by==='fit') s.sort((a,b)=>(b.analysis?.fitScore||0)-(a.analysis?.fitScore||0));
   else s.sort((a,b)=>a.company.localeCompare(b.company));
   renderResults(s);
 }
  
-function showJD(id, e) {
+function showJD(id,e) {
   e.stopPropagation();
-  const card = document.getElementById('card-'+id);
-  document.getElementById('jdTitle').textContent = card.dataset.title;
-  document.getElementById('jdBody').textContent = card.dataset.jd;
+  const card=document.getElementById('card-'+id);
+  document.getElementById('jdTitle').textContent=card.dataset.title;
+  document.getElementById('jdBody').textContent=card.dataset.jd;
   document.getElementById('jdModal').classList.add('open');
 }
  
+// ── LOADING ──
 function showLoading() {
   document.getElementById('emptyState').style.display='none';
   document.getElementById('resultsWrap').style.display='none';
   document.getElementById('loadingState').classList.add('show');
-  setProgress(0,'Starting...');
+  setP(0,'Starting...');
 }
 function hideLoading() { document.getElementById('loadingState').classList.remove('show'); }
-function setProgress(pct, label) {
-  document.getElementById('progFill').style.width=pct+'%';
-  document.getElementById('progLabel').textContent=label;
+function setP(pct,label) {
+  document.getElementById('pfill').style.width=pct+'%';
+  document.getElementById('plbl').textContent=label;
   if(pct>5) {
-    document.getElementById('loadH').textContent=pct<25?'Fetching jobs from portals...':pct<96?'Analysing with Groq AI...':'Analysis complete ✓';
-    document.getElementById('loadS').textContent=pct<25?'JSearch API → LinkedIn, Indeed, Glassdoor, Naukri':pct<96?'Groq Llama reading each JD vs your CV':'Rendering results...';
+    document.getElementById('lh').textContent=pct<25?'Fetching jobs from portals...':pct<96?'Analysing with Groq AI...':'Analysis complete ✓';
+    document.getElementById('ls').textContent=pct<25?'JSearch → LinkedIn, Indeed, Glassdoor, Naukri':pct<96?`${GROQ_MODEL} reading each JD vs your CV`:'Rendering results...';
   }
 }
-function showError(msg) {
+function showErr(msg) {
   hideLoading();
   document.getElementById('emptyState').style.display='none';
   document.getElementById('resultsWrap').style.display='block';
-  document.getElementById('rCount').textContent='0';
-  document.getElementById('rMeta').textContent='';
+  document.getElementById('rCount').textContent='0'; document.getElementById('rMeta').textContent='';
   document.getElementById('jobsList').innerHTML=`<div class="err-card">⚠ ${msg.replace(/\n/g,'<br>')}</div>`;
 }
 </script>
