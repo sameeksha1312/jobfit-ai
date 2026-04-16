@@ -355,7 +355,8 @@ ul.bl.g li::before{color:var(--green);}ul.bl.r li::before{color:var(--red);}ul.b
         </div>
         <div class="sh" style="margin-top:7px;">JSearch aggregates LinkedIn, Indeed, Naukri, Glassdoor, Iimjobs automatically.</div>
       </div>
-      <button class="btn-search" onclick="runSearch()">⟳ Search &amp; Analyse Jobs</button>
+      <button class="btn-search" onclick="runSearch(true)">⟳ Search &amp; Analyse Jobs</button>
+      <button class="btn-search" id="addMoreBtn" style="display:none;background:var(--surface2);color:var(--gold);border:1px solid var(--gold);margin-top:6px;" onclick="runSearch(false)">+ Search &amp; Add More Results</button>
       <hr class="dv">
       <div class="sbs">
         <div class="ptog" onclick="togglePaste()"><span id="pArr">▸</span> Paste a single JD manually</div>
@@ -474,7 +475,7 @@ function togglePaste() {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
  
 // ── SEARCH ──
-async function runSearch() {
+async function runSearch(clearFirst = true) {
   if (!S.jsearchKey || !S.groqKey || !S.cvText) { alert('Please complete setup first.'); openSetup('keys'); return; }
   const q = document.getElementById('searchQuery').value.trim();
   if (!q) { alert('Please describe the type of role you\'re looking for.'); return; }
@@ -500,8 +501,13 @@ async function runSearch() {
  
     setP(100, 'Done!');
     await sleep(400);
-    S.jobs = results;
-    renderResults(results);
+    if (clearFirst) {
+      S.jobs = results;
+    } else {
+      S.jobs = [...S.jobs, ...results];
+    }
+    renderResults(S.jobs);
+    document.getElementById('addMoreBtn').style.display = 'flex';
   } catch(e) {
     hideLoading();
     showErr('Error: ' + e.message);
@@ -629,6 +635,7 @@ async function analyseManual() {
     await sleep(400);
     S.jobs=[{...job,analysis},...S.jobs];
     renderResults(S.jobs);
+    document.getElementById('addMoreBtn').style.display = 'flex';
     ['mJD','mTitle','mCompany','mURL'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('resultsPane').scrollTop=0;
   } catch(e) { hideLoading(); showErr('Error: '+e.message); }
